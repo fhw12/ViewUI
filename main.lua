@@ -1,5 +1,5 @@
 function love.load()
-	app = require("examples/test")
+	app = require("examples/calc")
 	ui = require("UI/view")
 	scale = love.window.getDPIScale()
 end
