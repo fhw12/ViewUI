@@ -29,6 +29,22 @@ function lib.events_handler()
 	end
 end
 
+function getWidgetbyID(t, id)
+	local result_widget = ''
+	for i = 1, #t do
+		if t[i].id then
+			if t[i].id == id then
+				return t[i]
+			end
+		end
+
+		if t[i].content then
+			result_widget = getWidgetbyID(t[i].content, id)
+			if result_widget ~= nil then return result_widget end
+		end
+	end
+end
+
 function lib.render(t, x, y, width, height)
 	for i = 1, #t do
 		local var = {

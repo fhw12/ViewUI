@@ -6,7 +6,7 @@ return function(var, lib, t, i)
 	if var.x < lib.events.mx and var.x + var.width > lib.events.mx and
 		var.y < lib.events.my and var.y + var.height * t[i].size > lib.events.my then
 			if t[i].click and lib.events.click then
-				t[i].click()
+				t[i].click(t[i])
 			end
 	end
 
