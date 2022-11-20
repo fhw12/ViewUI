@@ -3,6 +3,7 @@ local lib = {}
 lib.ui = {}
 lib.ui.row = require('UI/row')
 lib.ui.column = require('UI/column')
+lib.ui.circle = require('UI/circle')
 
 function lib.render(t, x, y, width, height)
 	for i = 1, #t do
