@@ -9,5 +9,6 @@ function love.update()
 end
 
 function love.draw()
+	ui.events_handler()
 	ui.render(app.view, 0, 0, width/scale, height/scale)
 end

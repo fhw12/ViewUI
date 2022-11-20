@@ -5,6 +5,7 @@ return function(var, lib, t, i)
 
 	local r = var.height/2
 	if var.height > var.width then r = var.width/2 end
+	if t[i].padding then r = r - t[i].padding end
 
 	love.graphics.circle('fill', var.x+var.width/2, var.y+var.height/2, r)
 
