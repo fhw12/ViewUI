@@ -7,15 +7,34 @@ function app.button_click(widget_click)
 		if widget_click.text == "AC" then
 			res.text = '0'
 		elseif widget_click.text == "<" then
-			res.text = '0'
+			res.text = res.text:sub(1, #res.text-1)
 		elseif widget_click.text == "%" then
 			res.text = '0'
 		elseif widget_click.text == "=" then
-			res.text = '0'
+			local f = loadstring("return "..res.text)
+			
+			if f then
+				local result = f()
+
+				if result then
+					res.text = '' .. result
+					return 0
+				end
+			end
+
+			res.text = 'Error'
 		elseif widget_click.text == "+-" then
-			res.text = '0'
+			if res.text:sub(1, 1) == "-" then
+				res.text = res.text:sub(2, #res.text)
+			else
+				res.text = '-' .. res.text:sub(1, #res.text)
+			end
 		else
-			res.text = res.text .. widget_click.text
+			if res.text == "0" then
+				res.text = widget_click.text
+			else
+				res.text = res.text .. widget_click.text
+			end
 		end
 	end
 end
