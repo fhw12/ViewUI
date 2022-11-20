@@ -9,7 +9,18 @@ function app.button_click(widget_click)
 		elseif widget_click.text == "<" then
 			res.text = res.text:sub(1, #res.text-1)
 		elseif widget_click.text == "%" then
-			res.text = '0'
+			local f = loadstring("return ("..res.text..") / 100")
+			
+			if f then
+				local result = f()
+
+				if result then
+					res.text = '' .. result
+					return 0
+				end
+			end
+
+			res.text = 'Error'
 		elseif widget_click.text == "=" then
 			local f = loadstring("return "..res.text)
 			
